@@ -25,6 +25,7 @@ def test_random_multiclass_predictor():
 
     # Evaluate the random predictor
     f1 = random_predictor.evaluate(X_test, y_test)
+    random_predictor.print_classification_report(X_test, y_test)
     
     print(f"Random Predictor F1 Score: {f1} \n")
     assert isinstance(f1, float), "F1 score is not a float"
@@ -45,6 +46,7 @@ def test_sklearnMultiClass():
 
     # Evaluate the sklearn predictor
     f1 = sklearn_predictor.evaluate(X_test, y_test)
+    sklearn_predictor.print_classification_report(X_test, y_test)
     
     print(f"Sklearn Predictor F1 Score: {f1} \n")
     assert isinstance(f1, float), "F1 score is not a float"
