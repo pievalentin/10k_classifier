@@ -1,0 +1,33 @@
+name: Model Grading CI
+
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.12'
+
+    - name: Install Poetry
+      run: |
+        curl -sSL https://install.python-poetry.org | python3 -
+
+    - name: Install dependencies
+      run: |
+        poetry install
+
+    - name: Download NLTK data
+      run: |
+        poetry run python -m nltk.downloader wordnet
+        poetry run python -m nltk.downloader stopwords
+
+    - name: Run tests
+      run: |
+        poetry run pytest -s test_model.py
