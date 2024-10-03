@@ -33,7 +33,9 @@ This repository contains the code to evaluate models submitted through Pull Requ
     ```bash
     poetry install
     ```
-4. Run the evaluation script:
+4. get the dataset. Either download from the Kaggle competition: [Financial Computing Workshop 2021](https://www.kaggle.com/competitions/en553803-financial-computing-workshop-2021/overview). Or you can git pull the csv from git lfs directly. Make sure you have git lfs installed see: https://git-lfs.com/
+
+5. Run the evaluation script:
     ```bash
     poetry run python evaluate.py
     ```
