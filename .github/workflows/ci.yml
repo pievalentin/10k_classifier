@@ -3,7 +3,7 @@ name: Model Grading CI
 on: [push, pull_request]
 
 jobs:
-  test:
+  train and test predictor:
     runs-on: ubuntu-latest
 
     steps:
